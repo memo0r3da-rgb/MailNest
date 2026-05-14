@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="خطة MailNest Premium وطرق الدفع المحلية داخل مصر." />
+    <meta name="robots" content="index, follow" />
+    <title>MailNest Premium | بوابة دفع محلية</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="premium">
+    <main class="page standalone-page">
+      <div data-site-header></div>
+
+      <section class="pricing-hero">
+        <p class="eyebrow">Premium Checkout</p>
+        <h1>اشترك في MailNest Premium ببوابة دفع محلية.</h1>
+        <p>
+          تجربة دفع منظمة: ملخص طلب، بيانات العميل، اختيار طريقة الدفع، رفع صورة التحويل،
+          ثم مراجعة الأدمن قبل تفعيل Premium.
+        </p>
+      </section>
+
+      <section class="pricing-grid">
+        <article class="price-card">
+          <p class="eyebrow">مجاني</p>
+          <h2>0 جنيه</h2>
+          <p>بريد مؤقت سريع لاستقبال رسائل التفعيل الأساسية.</p>
+          <ul>
+            <li>توليد بريد مؤقت</li>
+            <li>تحديث تلقائي للرسائل</li>
+            <li>نسخ البريد والكود</li>
+            <li>إعلانات لدعم الخدمة</li>
+          </ul>
+          <a class="ghost-button wide" href="index.html#inbox">ابدأ مجانا</a>
+        </article>
+
+        <article class="price-card featured">
+          <p class="eyebrow">Premium</p>
+          <h2>250 جنيه <span>/ شهر</span></h2>
+          <p>واجهة بدون إعلانات، دعم أولوية، وتجربة أكثر هدوءا للمستخدمين المتكررين.</p>
+          <ul>
+            <li>إخفاء الإعلانات بعد موافقة الأدمن</li>
+            <li>حفظ وتنظيم أفضل للرسائل</li>
+            <li>دعم أولوية عبر Gmail</li>
+            <li>إشعار تفعيل بعد مراجعة صورة التحويل</li>
+          </ul>
+          <button class="primary-button wide" id="openCheckout" type="button">
+            <i data-lucide="crown"></i>
+            اشترك الآن
+          </button>
+          <div class="activation-inline">
+            <label for="notificationEmail">متابعة طلب التفعيل</label>
+            <div>
+              <input id="notificationEmail" type="text" inputmode="email" placeholder="you@example.com" />
+              <button class="ghost-button" id="checkNotifications" type="button">فحص</button>
+            </div>
+            <div class="notification-list" id="notificationList"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="content-section">
+        <div class="section-head">
+          <p class="eyebrow">Secure Review Flow</p>
+          <h2>الدفع لا يفعّل Premium إلا بعد المراجعة.</h2>
+          <p>
+            المستخدم يرسل صورة التحويل للأدمن. الأدمن يقبل أو يرفض الطلب من لوحة التحكم،
+            وعند القبول يظهر إشعار تفعيل للمستخدم في صفحة Premium بدون إرسال كود يدوي.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <i data-lucide="wallet"></i>
+            <h3>محافظ مصرية</h3>
+            <p>Vodafone Cash وEtisalat Cash وOrange Cash على نفس رقم التحويل.</p>
+          </article>
+          <article class="feature-card">
+            <i data-lucide="qr-code"></i>
+            <h3>InstaPay</h3>
+            <p>رابط مباشر وQR جاهز للدفع من تطبيق InstaPay.</p>
+          </article>
+          <article class="feature-card">
+            <i data-lucide="shield-check"></i>
+            <h3>موافقة الأدمن</h3>
+            <p>لا يتم تفعيل Premium تلقائيا بمجرد ضغط المستخدم؛ يظهر زر التفعيل بعد موافقة الأدمن.</p>
+          </article>
+        </div>
+      </section>
+
+      <div data-site-footer></div>
+    </main>
+
+    <div class="checkout-overlay" id="checkoutOverlay" hidden>
+      <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+        <button class="checkout-close" id="closeCheckout" type="button" aria-label="إغلاق">
+          <i data-lucide="x"></i>
+        </button>
+
+        <aside class="checkout-summary">
+          <p class="eyebrow">ملخص الطلب</p>
+          <h2>250 جنيه</h2>
+          <p>MailNest Premium - شهر واحد</p>
+          <div class="summary-product">
+            <span class="summary-icon"><i data-lucide="crown"></i></span>
+            <div>
+              <strong>MailNest Web Premium</strong>
+              <small>إزالة الإعلانات + دعم أولوية</small>
+            </div>
+          </div>
+          <div class="summary-lines">
+            <div><span>المجموع الفرعي</span><strong>250 جنيه</strong></div>
+            <div><span>ضريبة القيمة المضافة</span><strong>0 جنيه</strong></div>
+            <div class="total-line"><span>المستحق اليوم</span><strong>250 جنيه</strong></div>
+          </div>
+          <small class="checkout-footnote">التفعيل يتم بعد مراجعة صورة التحويل من الأدمن.</small>
+        </aside>
+
+        <div class="checkout-main">
+          <div class="checkout-steps" aria-label="خطوات الدفع">
+            <button class="step-pill active" type="button" data-step-indicator="details">تفاصيلك</button>
+            <span></span>
+            <button class="step-pill" type="button" data-step-indicator="payment">الدفع</button>
+            <span></span>
+            <button class="step-pill" type="button" data-step-indicator="success">المراجعة</button>
+          </div>
+
+          <section class="checkout-step active" data-step="details">
+            <h2 id="checkoutTitle">بيانات التفعيل</h2>
+            <p>نحتاج بريدك حتى يراجع الأدمن الدفع ويرسل لك كود التفعيل بعد القبول.</p>
+            <label>
+              البريد الإلكتروني
+              <input id="checkoutEmail" type="text" inputmode="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              البلد
+              <select id="checkoutCountry">
+                <option value="EG">مصر</option>
+              </select>
+            </label>
+            <label class="check-line">
+              <input id="checkoutConsent" type="checkbox" checked />
+              <span>أوافق على إرسال بيانات الطلب وصورة التحويل إلى MailNest لمراجعة الدفع.</span>
+            </label>
+            <button class="primary-button wide" id="continueToPayment" type="button">استمرار</button>
+          </section>
+
+          <section class="checkout-step" data-step="payment">
+            <h2>اختر طريقة الدفع</h2>
+            <form
+              id="paymentProofForm"
+              action="https://formsubmit.co/memo0r3da@gmail.com"
+              method="POST"
+              enctype="multipart/form-data"
+              target="proofFrame"
+              class="proof-form"
+            >
+              <input type="hidden" name="_subject" value="طلب مراجعة دفع MailNest Premium" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="plan" value="MailNest Web Premium - 1 month" />
+              <input type="hidden" name="amount" value="250 EGP" />
+              <input type="hidden" name="payment_method" id="proofMethod" value="instapay" />
+              <input type="hidden" name="customer_email" id="proofEmail" />
+              <input type="hidden" name="transaction_reference" id="proofTransaction" />
+              <input type="hidden" name="review_request_id" id="proofRequestId" />
+            </form>
+            <iframe name="proofFrame" title="proof sender" hidden></iframe>
+
+            <div class="method-tabs" role="tablist">
+              <button class="method-tab active" type="button" data-method="instapay"><span class="pay-logo instapay-logo">IP</span>InstaPay</button>
+              <button class="method-tab" type="button" data-method="vodafone"><span class="pay-logo vodafone-logo">V</span>Vodafone Cash</button>
+              <button class="method-tab" type="button" data-method="etisalat"><span class="pay-logo etisalat-logo">E</span>Etisalat Cash</button>
+              <button class="method-tab" type="button" data-method="orange"><span class="pay-logo orange-logo">O</span>Orange Cash</button>
+            </div>
+
+            <div class="method-panel active" data-method-panel="instapay">
+              <div class="qr-card compact-qr">
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fipn.eg%2FS%2Fmohamm3edr3da%2Finstapay%2F78yteB"
+                  alt="QR Code لرابط InstaPay"
+                />
+                <strong>mohamm3edr3da@instapay</strong>
+              </div>
+              <a class="primary-button wide" href="https://ipn.eg/S/mohamm3edr3da/instapay/78yteB" target="_blank" rel="noopener">
+                <i data-lucide="external-link"></i>
+                فتح InstaPay للدفع
+              </a>
+              <button class="ghost-button wide" type="button" data-copy="01115838581">نسخ رقم InstaPay: 01115838581</button>
+            </div>
+
+            <div class="method-panel" data-method-panel="vodafone">
+              <p>حوّل قيمة الاشتراك على رقم Vodafone Cash التالي:</p>
+              <code class="pay-number">01501691767</code>
+              <button class="ghost-button wide" type="button" data-copy="01501691767">نسخ الرقم</button>
+            </div>
+
+            <div class="method-panel" data-method-panel="etisalat">
+              <p>حوّل قيمة الاشتراك على رقم Etisalat Cash التالي:</p>
+              <code class="pay-number">01501691767</code>
+              <button class="ghost-button wide" type="button" data-copy="01501691767">نسخ الرقم</button>
+            </div>
+
+            <div class="method-panel" data-method-panel="orange">
+              <p>حوّل قيمة الاشتراك على رقم Orange Cash التالي:</p>
+              <code class="pay-number">01501691767</code>
+              <button class="ghost-button wide" type="button" data-copy="01501691767">نسخ الرقم</button>
+            </div>
+
+            <label>
+              رقم العملية أو آخر 4 أرقام من رقم التحويل
+              <input id="transactionRef" type="text" placeholder="مثلا: 4821" />
+            </label>
+            <label>
+              صورة التحويل
+              <input id="proofImage" form="paymentProofForm" name="proof_image" type="file" accept="image/*" />
+            </label>
+            <div class="proof-preview" id="proofPreview" hidden></div>
+            <div class="checkout-actions">
+              <button class="ghost-button" id="backToDetails" type="button">رجوع</button>
+              <button class="primary-button" id="confirmPayment" type="button">إرسال الإثبات للأدمن</button>
+            </div>
+          </section>
+
+          <section class="checkout-step" data-step="success">
+            <div class="success-mark pending-mark"><i data-lucide="clock"></i></div>
+            <h2>تم إرسال طلب المراجعة</h2>
+            <p>
+              تم إرسال بيانات الدفع وصورة التحويل للأدمن. بعد قبول الدفع سيظهر إشعار تفعيل
+              في قسم متابعة الطلب داخل صفحة Premium لتفعيل الاشتراك وإخفاء الإعلانات.
+            </p>
+            <div class="activation-box">
+              <span>رقم طلب المراجعة</span>
+              <strong id="reviewRequestId">-</strong>
+            </div>
+            <div class="checkout-actions">
+              <a class="ghost-button" id="sendProofLink" href="contact.html">التواصل مع الدعم</a>
+              <a class="primary-button" href="index.html">العودة للموقع</a>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast" id="paymentToast" role="status" aria-live="polite"></div>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="site-data.js"></script>
+    <script src="site.js"></script>
+    <script src="premium.js"></script>
+  </body>
+</html>

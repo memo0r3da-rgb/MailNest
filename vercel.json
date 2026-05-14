@@ -1,0 +1,29 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/admin.html",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/home", "destination": "/index.html", "permanent": true },
+    { "source": "/premium", "destination": "/premium.html", "permanent": true },
+    { "source": "/blog", "destination": "/blog.html", "permanent": true },
+    { "source": "/contact", "destination": "/contact.html", "permanent": true },
+    { "source": "/privacy", "destination": "/privacy.html", "permanent": true },
+    { "source": "/terms", "destination": "/terms.html", "permanent": true },
+    { "source": "/faq", "destination": "/faq.html", "permanent": true }
+  ]
+}
+
