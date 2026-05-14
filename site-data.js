@@ -1,11 +1,11 @@
 window.MailNestDefaults = {
   nav: [
-    { label: "الرئيسية", href: "index.html" },
-    { label: "بريميوم", href: "premium.html" },
-    { label: "المقالات", href: "blog.html" },
-    { label: "عن الموقع", href: "about.html" },
-    { label: "الأسئلة", href: "faq.html" },
-    { label: "تواصل", href: "contact.html" },
+    { label: "الرئيسية", href: "./" },
+    { label: "بريميوم", href: "premium" },
+    { label: "المقالات", href: "blog" },
+    { label: "عن الموقع", href: "about" },
+    { label: "الأسئلة", href: "faq" },
+    { label: "تواصل", href: "contact" },
   ],
   articles: [
     {

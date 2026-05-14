@@ -40,7 +40,7 @@
     const custom = readStore(storeKeys.pages, []);
     return [...(defaults.nav || []), ...custom.map((page) => ({
       label: page.title,
-      href: `page.html?slug=${encodeURIComponent(page.slug)}`,
+      href: `page?slug=${encodeURIComponent(page.slug)}`,
     }))];
   }
 
@@ -74,11 +74,11 @@
       ? `<button class="ghost-button" id="newEmailTop" type="button"><i data-lucide="shuffle"></i> بريد جديد</button>`
       : premium.active
         ? `<span class="premium-badge"><i data-lucide="crown"></i> Premium</span>`
-        : `<a class="ghost-button" href="index.html#inbox"><i data-lucide="mail-plus"></i> ابدأ الآن</a>`;
+        : `<a class="ghost-button" href="./#inbox"><i data-lucide="mail-plus"></i> ابدأ الآن</a>`;
 
     target.innerHTML = `
       <header class="topbar">
-        <a class="brand" href="index.html" aria-label="الصفحة الرئيسية">
+        <a class="brand" href="./" aria-label="الصفحة الرئيسية">
           ${logoMarkup()}
           <span>
             <strong>MailNest</strong>
@@ -140,7 +140,7 @@
       <footer class="site-footer">
         <nav class="footer-nav" aria-label="روابط الصفحات">${navItems}</nav>
         <div>
-          <a class="brand" href="index.html">
+          <a class="brand" href="./">
             ${logoMarkup()}
             <span>
               <strong>MailNest</strong>
@@ -150,11 +150,11 @@
           <p>أداة بريد مؤقت تساعدك على تقليل السبام وحماية بريدك الحقيقي عند التجارب القصيرة.</p>
         </div>
         <div class="footer-links">
-          <a href="about.html">عن الموقع</a>
-          <a href="privacy.html">سياسة الخصوصية</a>
-          <a href="terms.html">الشروط</a>
-          <a href="contact.html">تواصل</a>
-          <a href="blog.html">المقالات</a>
+          <a href="about">عن الموقع</a>
+          <a href="privacy">سياسة الخصوصية</a>
+          <a href="terms">الشروط</a>
+          <a href="contact">تواصل</a>
+          <a href="blog">المقالات</a>
         </div>
         <p class="footer-note">© 2026 MailNest. لا تستخدم البريد المؤقت لاستقبال معلومات حساسة أو حسابات تحتاج إلى استرداد طويل المدى.</p>
       </footer>
@@ -266,7 +266,7 @@
         <p class="eyebrow">${escapeHtml(article.category)} · ${formatDate(article.date)}</p>
         <h3>${escapeHtml(article.title)}</h3>
         <p>${escapeHtml(article.excerpt)}</p>
-        <a class="text-link" href="article.html?slug=${encodeURIComponent(article.slug)}">قراءة المقال</a>
+        <a class="text-link" href="article?slug=${encodeURIComponent(article.slug)}">قراءة المقال</a>
       </article>
     `;
   }
