@@ -1,7 +1,2 @@
-/home              /index.html   200
-/premium           /premium.html 200
-/blog              /blog.html    200
-/contact           /contact.html 200
-/privacy           /privacy.html 200
-/terms             /terms.html   200
-/faq               /faq.html     200
+# No manual clean-URL redirects.
+# Cloudflare Pages serves /blog from blog.html automatically.
