@@ -1,0 +1,18 @@
+{
+  "name": "MailNest",
+  "short_name": "MailNest",
+  "description": "Temporary email tool for receiving verification messages.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0d1519",
+  "theme_color": "#0d1519",
+  "icons": [
+    {
+      "src": "/assets/mailnest-logo.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

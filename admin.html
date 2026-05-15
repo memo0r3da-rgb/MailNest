@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>لوحة تحكم MailNest</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="admin">
+    <main class="admin-shell">
+      <section class="admin-login" id="loginView">
+        <div class="admin-card">
+          <p class="eyebrow">Dashboard</p>
+          <h1>لوحة تحكم MailNest</h1>
+          <p>هذه الصفحة غير مرتبطة من الموقع الرئيسي. افتحها من الملف أو الرابط المباشر فقط.</p>
+          <div class="credential-box">
+            <span>بيانات الدخول التجريبية</span>
+            <strong>admin@mailnest.local</strong>
+            <strong>MailNest@2026</strong>
+          </div>
+          <form id="loginForm" class="contact-form">
+            <label>
+              البريد
+              <input id="adminEmail" type="text" autocomplete="username" />
+            </label>
+            <label>
+              كلمة المرور
+              <input id="adminPassword" type="password" autocomplete="current-password" />
+            </label>
+            <button class="primary-button" type="submit">دخول</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-dashboard" id="dashboardView" hidden>
+        <header class="admin-topbar">
+          <div>
+            <p class="eyebrow">MailNest CMS</p>
+            <h1>إدارة المحتوى</h1>
+          </div>
+          <div class="top-actions">
+            <a class="ghost-button" href="./">عرض الموقع</a>
+            <button class="danger-button" id="logoutButton" type="button">خروج</button>
+          </div>
+        </header>
+
+        <section class="admin-grid">
+          <form class="admin-panel" id="sectionForm">
+            <h2>إضافة سكشن للصفحة الرئيسية</h2>
+            <label>
+              العنوان
+              <input name="title" required placeholder="مثلا: حماية أسرع للتسجيلات" />
+            </label>
+            <label>
+              الأيقونة
+              <input name="icon" placeholder="shield-check" />
+            </label>
+            <label>
+              النص
+              <textarea name="content" rows="5" required placeholder="اكتب وصف السكشن"></textarea>
+            </label>
+            <button class="primary-button" type="submit">إضافة السكشن</button>
+          </form>
+
+          <form class="admin-panel" id="pageForm">
+            <h2>إضافة صفحة للهيدر</h2>
+            <label>
+              اسم الصفحة
+              <input name="title" required placeholder="مثلا: الاستخدام التجاري" />
+            </label>
+            <label>
+              الرابط المختصر
+              <input name="slug" required placeholder="commercial-use" />
+            </label>
+            <label>
+              المحتوى
+              <textarea name="content" rows="7" required placeholder="اكتب محتوى الصفحة"></textarea>
+            </label>
+            <button class="primary-button" type="submit">إضافة الصفحة</button>
+          </form>
+
+          <form class="admin-panel" id="articleForm">
+            <h2>كتابة مقال جديد</h2>
+            <label>
+              عنوان المقال
+              <input name="title" required placeholder="عنوان جذاب ومفيد" />
+            </label>
+            <label>
+              التصنيف
+              <input name="category" required placeholder="خصوصية" />
+            </label>
+            <label>
+              الرابط المختصر
+              <input name="slug" required placeholder="my-article" />
+            </label>
+            <label>
+              الوصف المختصر
+              <textarea name="excerpt" rows="3" required placeholder="ملخص يظهر في كارت المقال"></textarea>
+            </label>
+            <label>
+              المقال
+              <textarea name="content" rows="9" required placeholder="اكتب المقال كاملا"></textarea>
+            </label>
+            <button class="primary-button" type="submit">نشر المقال</button>
+          </form>
+
+          <section class="admin-panel">
+            <h2>أفكار تطوير مقترحة</h2>
+            <div class="info-list">
+              <div>
+                <strong>ربط باك إند</strong>
+                <span>نقل بيانات لوحة التحكم من localStorage إلى قاعدة بيانات.</span>
+              </div>
+              <div>
+                <strong>تحسين الأمان</strong>
+                <span>إضافة Cloudflare Turnstile للنماذج وتقليل الرسائل المزعجة.</span>
+              </div>
+              <div>
+                <strong>إدارة الإعلانات</strong>
+                <span>حقول لوضع Publisher ID و Ad Slot IDs من لوحة التحكم.</span>
+              </div>
+              <div>
+                <strong>SEO متقدم</strong>
+                <span>توليد sitemap تلقائي ومخطط Article JSON-LD لكل مقال.</span>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="admin-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Content</p>
+              <h2>المحتوى الحالي</h2>
+            </div>
+            <button class="danger-button" id="resetContent" type="button">مسح محتوى اللوحة</button>
+          </div>
+          <div class="admin-lists" id="contentLists"></div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="adminToast" role="status" aria-live="polite"></div>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="site-data.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

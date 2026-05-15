@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MailNest يمنحك بريدا مؤقتا مجانيا لاستقبال رسائل التفعيل وحماية بريدك الحقيقي من السبام والتتبع."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="application-name" content="MailNest" />
+    <meta name="theme-color" content="#0d1519" />
+    <meta name="google-adsense-account" content="ca-pub-4435388073656818" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4435388073656818" crossorigin="anonymous"></script>
+    <meta property="og:site_name" content="MailNest" />
+    <meta property="og:url" content="https://mailnest.pages.dev/" />
+    <meta property="og:image" content="https://mailnest.pages.dev/assets/mailnest-logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:title" content="MailNest | بريد مؤقت مجاني" />
+    <meta property="og:description" content="أنشئ بريد مؤقت واستقبل رسائل التفعيل بدون تسجيل." />
+    <title>MailNest | بريد مؤقت مجاني لاستقبال رسائل التفعيل</title>
+    <link rel="canonical" href="https://mailnest.pages.dev/" />
+    <link rel="icon" href="assets/mailnest-logo.png" type="image/png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preconnect" href="https://api.mail.gw" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://mailnest.pages.dev/#organization",
+            "name": "MailNest",
+            "url": "https://mailnest.pages.dev/",
+            "logo": "https://mailnest.pages.dev/assets/mailnest-logo.png",
+            "email": "memo0r3da@gmail.com"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mailnest.pages.dev/#website",
+            "name": "MailNest",
+            "alternateName": ["Mail Nest", "MailNest Temp Mail"],
+            "url": "https://mailnest.pages.dev/",
+            "publisher": { "@id": "https://mailnest.pages.dev/#organization" },
+            "inLanguage": "ar"
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://mailnest.pages.dev/#app",
+            "name": "MailNest",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Web",
+            "url": "https://mailnest.pages.dev/",
+            "description": "Temporary email tool for receiving verification messages and protecting your real inbox."
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body data-page="home">
+    <div class="app-shell">
+      <aside class="side-rail" aria-label="مساحات اعلانية جانبية">
+        <div class="ad-slot ad-vertical">
+          <span>اعلان</span>
+          <strong>300x600</strong>
+        </div>
+      </aside>
+
+      <main class="page">
+        <div data-site-header></div>
+
+        <section class="hero-panel">
+          <div class="hero-copy">
+            <p class="eyebrow">بديل سريع لاستخدام بريدك الحقيقي</p>
+            <h1>استقبل رسائل التفعيل في بريد مؤقت يعمل فعليا.</h1>
+            <p>
+              يبدأ التوليد من mail.gw، ومعه احتياطي متوافق عند انقطاع الدومينات؛
+              وتظهر الرسائل هنا تلقائيا مع أدوات النسخ والتحديث والحذف وتغيير العنوان.
+            </p>
+          </div>
+
+          <div class="mail-card">
+            <div class="status-row">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span id="statusText">جاهز للتوليد</span>
+              <span class="timer" id="timerText">10:00</span>
+            </div>
+
+            <label class="mail-label" for="emailAddress">عنوان البريد الحالي</label>
+            <div class="email-box">
+              <input id="emailAddress" type="text" readonly value="اضغط توليد بريد" />
+              <button class="icon-action" id="copyEmail" type="button" aria-label="نسخ البريد">
+                <i data-lucide="copy"></i>
+              </button>
+            </div>
+
+            <div class="action-grid">
+              <button class="primary-button" id="generateEmail" type="button">
+                <i data-lucide="sparkles"></i>
+                توليد بريد
+              </button>
+              <button class="soft-button" id="refreshInbox" type="button">
+                <i data-lucide="refresh-cw"></i>
+                تحديث
+              </button>
+              <button class="soft-button" id="changeEmail" type="button">
+                <i data-lucide="repeat-2"></i>
+                تغيير
+              </button>
+              <button class="danger-button" id="deleteEmail" type="button">
+                <i data-lucide="trash-2"></i>
+                حذف
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="ad-banner" aria-label="مساحة اعلانية علوية">
+          <span>مساحة اعلان Google AdSense</span>
+          <strong>728x90 / Responsive</strong>
+        </section>
+
+        <section class="workspace-grid" id="inbox">
+          <section class="inbox-panel" aria-labelledby="inboxTitle">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Inbox</p>
+                <h2 id="inboxTitle">الرسائل الواردة</h2>
+              </div>
+              <div class="panel-tools">
+                <span id="messageCount">0 رسالة</span>
+                <button class="icon-button" id="refreshInboxSmall" type="button" aria-label="تحديث الرسائل">
+                  <i data-lucide="rotate-cw"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="empty-state" id="emptyState">
+              <i data-lucide="mail-search"></i>
+              <h3>لا توجد رسائل بعد</h3>
+              <p>اترك الصفحة مفتوحة، وسيتم تحديث الصندوق تلقائيا عند وصول رسالة جديدة.</p>
+            </div>
+
+            <div class="message-list" id="messageList" aria-live="polite"></div>
+          </section>
+
+          <aside class="detail-panel" aria-labelledby="detailTitle">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Preview</p>
+                <h2 id="detailTitle">معاينة الرسالة</h2>
+              </div>
+              <button class="icon-button" id="deleteMessage" type="button" aria-label="حذف الرسالة" disabled>
+                <i data-lucide="trash"></i>
+              </button>
+            </div>
+
+            <div class="message-detail" id="messageDetail">
+              <div class="empty-state compact">
+                <i data-lucide="mouse-pointer-click"></i>
+                <h3>اختر رسالة</h3>
+                <p>عند وصول رسالة تفعيل، افتحها هنا لنسخ الكود أو الرابط.</p>
+              </div>
+            </div>
+
+            <div class="ad-slot ad-square">
+              <span>اعلان</span>
+              <strong>336x280</strong>
+            </div>
+          </aside>
+        </section>
+
+        <section class="content-section">
+          <div class="section-head">
+            <p class="eyebrow">لماذا MailNest؟</p>
+            <h2>بريد مؤقت لمن يريد تجربة أسرع وخصوصية أفضل.</h2>
+            <p>
+              MailNest مناسب لاختبار التسجيلات، استقبال أكواد التفعيل، الاشتراك في المنتديات،
+              وتجربة الخدمات التي لا ترغب في منحها بريدك الشخصي الدائم.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <i data-lucide="shield-check"></i>
+              <h3>حماية من السبام</h3>
+              <p>استخدم عنوانا مؤقتا عند التسجيل في المواقع الأقل ثقة، واترك بريدك الأساسي نظيفا.</p>
+            </article>
+            <article class="feature-card">
+              <i data-lucide="timer-reset"></i>
+              <h3>جلسة مؤقتة واضحة</h3>
+              <p>يعرض الموقع مؤقتا للجلسة الحالية حتى تعرف متى تحتاج إلى تجديد العنوان.</p>
+            </article>
+            <article class="feature-card">
+              <i data-lucide="key-round"></i>
+              <h3>أكواد التفعيل</h3>
+              <p>افتح الرسائل واقرأ النصوص وروابط التحقق وانسخ الأكواد بسرعة.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section split-section">
+          <div>
+            <p class="eyebrow">الاستخدام المسؤول</p>
+            <h2>متى تستخدم البريد المؤقت؟</h2>
+            <p>
+              استخدمه في التجارب السريعة، التحميلات العامة، المنتديات، وفحص تدفق تسجيل تطبيقك.
+              لا تستخدمه للحسابات البنكية، الحسابات الطبية، الحسابات الحكومية، أو أي خدمة تحتاج
+              إلى استرداد طويل المدى.
+            </p>
+          </div>
+          <div class="info-list">
+            <div>
+              <strong>لا تسجيل</strong>
+              <span>تبدأ من المتصفح مباشرة بدون إنشاء حساب.</span>
+            </div>
+            <div>
+              <strong>قراءة فقط</strong>
+              <span>الخدمة مخصصة لاستقبال الرسائل وليست بديلا عن بريد كامل.</span>
+            </div>
+            <div>
+              <strong>خصوصية واعية</strong>
+              <span>لا ترسل بيانات حساسة إلى أي بريد مؤقت عام.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="customSections" hidden></section>
+
+        <section class="content-section">
+          <div class="section-head">
+            <p class="eyebrow">مقالات</p>
+            <h2>دليل سريع لاستخدام البريد المؤقت بأمان.</h2>
+          </div>
+          <div class="article-grid" data-article-list data-limit="3"></div>
+        </section>
+
+        <div data-site-footer></div>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="site-data.js"></script>
+    <script src="seo-articles.js"></script>
+    <script src="site.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
