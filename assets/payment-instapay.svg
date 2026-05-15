@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 72" role="img" aria-labelledby="title">
-  <title id="title">InstaPay</title>
-  <rect width="260" height="72" rx="18" fill="#fff"/>
-  <path d="M25 49 39 18h22l-7 15h18L48 61l7-20H37l-5 8Z" fill="#f37022"/>
-  <path d="M65 18h38c11 0 18 7 18 17 0 12-9 20-22 20H84l-3 8H61l15-36H60l5-9Z" fill="#662d91"/>
-  <text x="128" y="44" fill="#2f2146" font-family="Arial, sans-serif" font-size="24" font-weight="800">InstaPay</text>
-</svg>
