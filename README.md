@@ -50,7 +50,7 @@ http://127.0.0.1:4173
 - `about.html`, `privacy.html`, `terms.html`, `faq.html`, `contact.html`: صفحات ثقة مهمة للمستخدمين وAdSense.
 - `admin.html`: لوحة التحكم المخفية، غير مرتبطة من الموقع.
 - `robots.txt`, `sitemap.xml`, `ads.txt`: ملفات نشر وفهرسة وإعلانات.
-- `assets/mailnest-logo.svg`: أصل اللوجو. يتم عرض نسخة inline داخل الهيدر والفوتر لضمان ظهوره في كل بيئات الاستضافة.
+- `assets/mailnest-logo.png`: أصل اللوجو المستخدم في الهيدر والفوتر وبيانات المشاركة.
 
 ## لوحة التحكم
 
@@ -85,7 +85,7 @@ MailNest@2026
 في `premium.html` تم تفعيل طرق الدفع الحالية داخل مصر:
 
 - Vodafone Cash
-- Etisalat Cash
+- eand Cash
 - Orange Cash
 - تحويل مباشر على الرقم `01501691767`
 - InstaPay عبر الرابط `https://ipn.eg/S/mohamm3edr3da/instapay/78yteB`
@@ -98,7 +98,7 @@ MailNest@2026
 التدفق الحالي:
 
 1. المستخدم يفتح بوابة الدفع من صفحة Premium.
-2. يختار InstaPay أو Vodafone Cash أو Etisalat Cash أو Orange Cash.
+2. يختار InstaPay أو Vodafone Cash أو eand Cash أو Orange Cash.
 3. يرفع صورة التحويل ويكتب رقم العملية.
 4. يتم إرسال الإثبات إلى Gmail عبر FormSubmit.
 5. يظهر الطلب في لوحة التحكم داخل تبويب مراجعة طلبات Premium.
@@ -120,4 +120,4 @@ memo0r3da@gmail.com
 
 ## ملاحظة اللوجو
 
-تم تجهيز لوجو محلي احترافي داخل المشروع. في هذه الجلسة لم تكن أداة IMAGE GPT المباشرة ظاهرة ضمن الأدوات المتاحة، لذلك تم حفظ أصل قابل للاستبدال في `assets/mailnest-logo.svg`. عند توفر أداة image generation أو مفتاح API يمكن توليد نسخة raster واستبدالها بسهولة.
+تم استخدام صورة لوجو محلية داخل `assets/mailnest-logo.png` وربطها بالهيدر والفوتر ووسوم المشاركة وملف manifest.

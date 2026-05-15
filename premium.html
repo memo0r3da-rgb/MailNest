@@ -8,6 +8,7 @@
     <meta name="google-adsense-account" content="ca-pub-4435388073656818" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4435388073656818" crossorigin="anonymous"></script>
     <title>MailNest Premium | بوابة دفع محلية</title>
+    <link rel="canonical" href="https://mailnest.pages.dev/premium" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="premium">
@@ -75,7 +76,7 @@
           <article class="feature-card">
             <i data-lucide="wallet"></i>
             <h3>محافظ مصرية</h3>
-            <p>Vodafone Cash وEtisalat Cash وOrange Cash على نفس رقم التحويل.</p>
+            <p>Vodafone Cash وeand Cash وOrange Cash على نفس رقم التحويل.</p>
           </article>
           <article class="feature-card">
             <i data-lucide="qr-code"></i>
@@ -103,6 +104,10 @@
           <p class="eyebrow">ملخص الطلب</p>
           <h2>250 جنيه</h2>
           <p>MailNest Premium - شهر واحد</p>
+          <div class="secure-payment-strip">
+            <i data-lucide="shield-check"></i>
+            <span>مراجعة يدوية قبل التفعيل</span>
+          </div>
           <div class="summary-product">
             <span class="summary-icon"><i data-lucide="crown"></i></span>
             <div>
@@ -114,6 +119,11 @@
             <div><span>المجموع الفرعي</span><strong>250 جنيه</strong></div>
             <div><span>ضريبة القيمة المضافة</span><strong>0 جنيه</strong></div>
             <div class="total-line"><span>المستحق اليوم</span><strong>250 جنيه</strong></div>
+          </div>
+          <div class="checkout-security-list" aria-label="ضمانات الدفع">
+            <span><i data-lucide="lock-keyhole"></i> لا نحفظ بيانات بطاقات</span>
+            <span><i data-lucide="file-check-2"></i> إثبات الدفع يراجع يدويا</span>
+            <span><i data-lucide="badge-check"></i> التفعيل بعد موافقة الأدمن فقط</span>
           </div>
           <small class="checkout-footnote">التفعيل يتم بعد مراجعة صورة التحويل من الأدمن.</small>
         </aside>
@@ -169,14 +179,33 @@
             </form>
             <iframe name="proofFrame" title="proof sender" hidden></iframe>
 
-            <div class="method-tabs" role="tablist">
-              <button class="method-tab active" type="button" data-method="instapay"><span class="pay-logo instapay-logo">IP</span>InstaPay</button>
-              <button class="method-tab" type="button" data-method="vodafone"><span class="pay-logo vodafone-logo">V</span>Vodafone Cash</button>
-              <button class="method-tab" type="button" data-method="etisalat"><span class="pay-logo etisalat-logo">E</span>Etisalat Cash</button>
-              <button class="method-tab" type="button" data-method="orange"><span class="pay-logo orange-logo">O</span>Orange Cash</button>
+            <div class="method-tabs" role="tablist" aria-label="طرق الدفع المتاحة">
+              <button class="method-tab active" type="button" data-method="instapay" aria-pressed="true">
+                <img src="assets/payment-instapay.svg" alt="" loading="lazy" />
+                <span>InstaPay</span>
+              </button>
+              <button class="method-tab" type="button" data-method="vodafone" aria-pressed="false">
+                <img src="assets/payment-vodafone-cash.svg" alt="" loading="lazy" />
+                <span>Vodafone Cash</span>
+              </button>
+              <button class="method-tab" type="button" data-method="etisalat" aria-pressed="false">
+                <img src="assets/payment-etisalat-cash.svg" alt="" loading="lazy" />
+                <span>eand Cash</span>
+              </button>
+              <button class="method-tab" type="button" data-method="orange" aria-pressed="false">
+                <img src="assets/payment-orange-cash.svg" alt="" loading="lazy" />
+                <span>Orange Cash</span>
+              </button>
             </div>
 
             <div class="method-panel active" data-method-panel="instapay">
+              <div class="payment-method-head">
+                <img src="assets/payment-instapay.svg" alt="InstaPay" />
+                <div>
+                  <strong>ادفع عبر InstaPay</strong>
+                  <span>افتح الرابط أو امسح QR ثم ارفع إثبات التحويل.</span>
+                </div>
+              </div>
               <div class="qr-card compact-qr">
                 <img
                   src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fipn.eg%2FS%2Fmohamm3edr3da%2Finstapay%2F78yteB"
@@ -192,18 +221,39 @@
             </div>
 
             <div class="method-panel" data-method-panel="vodafone">
+              <div class="payment-method-head">
+                <img src="assets/payment-vodafone-cash.svg" alt="Vodafone Cash" />
+                <div>
+                  <strong>Vodafone Cash</strong>
+                  <span>حوّل نفس قيمة الاشتراك ثم ارفع صورة التحويل.</span>
+                </div>
+              </div>
               <p>حوّل قيمة الاشتراك على رقم Vodafone Cash التالي:</p>
               <code class="pay-number">01501691767</code>
               <button class="ghost-button wide" type="button" data-copy="01501691767">نسخ الرقم</button>
             </div>
 
             <div class="method-panel" data-method-panel="etisalat">
-              <p>حوّل قيمة الاشتراك على رقم Etisalat Cash التالي:</p>
+              <div class="payment-method-head">
+                <img src="assets/payment-etisalat-cash.svg" alt="eand Cash" />
+                <div>
+                  <strong>eand Cash</strong>
+                  <span>اكتب رقم العملية بدقة لتسريع مراجعة الأدمن.</span>
+                </div>
+              </div>
+              <p>حوّل قيمة الاشتراك على رقم eand Cash التالي:</p>
               <code class="pay-number">01501691767</code>
               <button class="ghost-button wide" type="button" data-copy="01501691767">نسخ الرقم</button>
             </div>
 
             <div class="method-panel" data-method-panel="orange">
+              <div class="payment-method-head">
+                <img src="assets/payment-orange-cash.svg" alt="Orange Cash" />
+                <div>
+                  <strong>Orange Cash</strong>
+                  <span>بعد التحويل ارفع صورة واضحة من إيصال العملية.</span>
+                </div>
+              </div>
               <p>حوّل قيمة الاشتراك على رقم Orange Cash التالي:</p>
               <code class="pay-number">01501691767</code>
               <button class="ghost-button wide" type="button" data-copy="01501691767">نسخ الرقم</button>
@@ -217,6 +267,7 @@
               صورة التحويل
               <input id="proofImage" form="paymentProofForm" name="proof_image" type="file" accept="image/*" />
             </label>
+            <p class="proof-help">ارفع صورة واضحة بصيغة PNG أو JPG أو WebP، وبحد أقصى 3MB. لا ترفع بيانات بطاقة أو كلمة مرور.</p>
             <div class="proof-preview" id="proofPreview" hidden></div>
             <div class="checkout-actions">
               <button class="ghost-button" id="backToDetails" type="button">رجوع</button>
@@ -247,6 +298,7 @@
     <div class="toast" id="paymentToast" role="status" aria-live="polite"></div>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="site-data.js"></script>
+    <script src="seo-articles.js"></script>
     <script src="site.js"></script>
     <script src="premium.js"></script>
   </body>

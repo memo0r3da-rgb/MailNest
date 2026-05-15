@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 112" role="img" aria-labelledby="title">
+  <title id="title">Vodafone Cash</title>
+  <rect width="260" height="112" rx="18" fill="#fff"/>
+  <g transform="translate(22 18)">
+    <circle cx="45" cy="38" r="34" fill="#ed1b24"/>
+    <path d="M61 14C43 17 29 29 29 47c0 12 8 21 21 21 14 0 25-12 25-28 0-12-6-22-14-26Z" fill="#fff"/>
+    <rect x="118" y="6" width="2.8" height="64" fill="#ed1b24"/>
+    <rect x="154" y="8" width="42" height="56" rx="9" fill="none" stroke="#ed1b24" stroke-width="5"/>
+    <path d="M162 40c14-7 25-6 38 2-13 5-25 5-38-2Z" fill="#ed1b24"/>
+    <path d="M139 77h79l-17 8h-78l16-8Zm11-12h74l-16 8h-75l17-8Zm14-12h65l-15 8h-66l16-8Z" fill="#ed1b24"/>
+  </g>
+</svg>

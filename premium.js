@@ -2,11 +2,16 @@
   const PREMIUM_KEY = "mailnest.premium";
   const REQUESTS_KEY = "mailnest.payment.requests";
   const NOTIFICATIONS_KEY = "mailnest.premium.notifications";
+  const LAST_REQUEST_KEY = "mailnest.payment.lastRequestAt";
   const ORDER = {
     amount: 250,
     currency: "EGP",
     plan: "MailNest Web Premium - 1 month",
   };
+  const MAX_PROOF_SIZE = 3 * 1024 * 1024;
+  const ALLOWED_PROOF_TYPES = new Set(["image/png", "image/jpeg", "image/webp"]);
+  const ALLOWED_METHODS = new Set(["instapay", "vodafone", "etisalat", "orange"]);
+  const REQUEST_COOLDOWN = 60 * 1000;
 
   const els = {
     overlay: document.querySelector("#checkoutOverlay"),
@@ -58,6 +63,16 @@
       if (!file) {
         els.proofPreview.hidden = true;
         els.proofPreview.innerHTML = "";
+        return;
+      }
+      if (!ALLOWED_PROOF_TYPES.has(file.type)) {
+        showToast("ارفع صورة PNG أو JPG أو WebP فقط");
+        els.proofImage.value = "";
+        return;
+      }
+      if (file.size > MAX_PROOF_SIZE) {
+        showToast("حجم صورة التحويل يجب ألا يتجاوز 3MB");
+        els.proofImage.value = "";
         return;
       }
       if (!file.type.startsWith("image/")) {
@@ -117,10 +132,12 @@
   }
 
   function selectMethod(method) {
+    if (!ALLOWED_METHODS.has(method)) return;
     selectedMethod = method;
     els.proofMethod.value = method;
     document.querySelectorAll("[data-method]").forEach((button) => {
       button.classList.toggle("active", button.dataset.method === method);
+      button.setAttribute("aria-pressed", String(button.dataset.method === method));
     });
     document.querySelectorAll("[data-method-panel]").forEach((panel) => {
       panel.classList.toggle("active", panel.dataset.methodPanel === method);
@@ -128,8 +145,19 @@
   }
 
   async function submitPaymentReview() {
-    if (!els.transaction.value.trim()) {
+    const transactionRef = els.transaction.value.trim();
+    const lastRequestAt = Number(localStorage.getItem(LAST_REQUEST_KEY) || 0);
+    if (Date.now() - lastRequestAt < REQUEST_COOLDOWN) {
+      showToast("انتظر دقيقة قبل إرسال طلب دفع جديد");
+      return;
+    }
+    if (!transactionRef) {
       showToast("اكتب رقم العملية أو آخر 4 أرقام");
+      els.transaction.focus();
+      return;
+    }
+    if (!/^[\w\s\u0600-\u06FF-]{4,40}$/.test(transactionRef)) {
+      showToast("رقم العملية يجب أن يكون من 4 إلى 40 حرفا");
       els.transaction.focus();
       return;
     }
@@ -138,13 +166,13 @@
       return;
     }
 
-    const id = `MN-${Date.now().toString(36).toUpperCase()}`;
+    const id = createRequestId();
     const request = {
       id,
       status: "pending",
-      email: els.email.value.trim(),
-      method: selectedMethod,
-      transactionRef: els.transaction.value.trim(),
+      email: els.email.value.trim().toLowerCase(),
+      method: ALLOWED_METHODS.has(selectedMethod) ? selectedMethod : "instapay",
+      transactionRef,
       amount: ORDER.amount,
       currency: ORDER.currency,
       plan: ORDER.plan,
@@ -155,6 +183,7 @@
     const requests = readList(REQUESTS_KEY);
     requests.unshift(request);
     localStorage.setItem(REQUESTS_KEY, JSON.stringify(requests));
+    localStorage.setItem(LAST_REQUEST_KEY, String(Date.now()));
 
     els.proofEmail.value = request.email;
     els.proofTransaction.value = request.transactionRef;
@@ -265,6 +294,12 @@
     } catch {
       return [];
     }
+  }
+
+  function createRequestId() {
+    const bytes = new Uint8Array(6);
+    crypto.getRandomValues(bytes);
+    return `MN-${Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join("").toUpperCase()}`;
   }
 
   function fileToDataUrl(file) {

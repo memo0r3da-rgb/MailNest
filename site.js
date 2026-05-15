@@ -163,16 +163,7 @@
 
   function logoMarkup() {
     return `
-      <svg class="brand-logo" viewBox="0 0 256 256" aria-hidden="true" focusable="false">
-        <rect width="256" height="256" rx="56" fill="#0D1519"></rect>
-        <path d="M52 86C52 73.8497 61.8497 64 74 64H182C194.15 64 204 73.8497 204 86V170C204 182.15 194.15 192 182 192H74C61.8497 192 52 182.15 52 170V86Z" fill="#F8FBFC"></path>
-        <path d="M62 83L119.011 130.086C124.225 134.391 131.775 134.391 136.989 130.086L194 83" stroke="#117B68" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path>
-        <path d="M84 115V166" stroke="#0D1519" stroke-width="15" stroke-linecap="round"></path>
-        <path d="M172 115V166" stroke="#0D1519" stroke-width="15" stroke-linecap="round"></path>
-        <path d="M85 115L128 166L171 115" stroke="#0D1519" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"></path>
-        <circle cx="196" cy="62" r="20" fill="#49D0B2"></circle>
-        <circle cx="57" cy="194" r="12" fill="#F0B84B"></circle>
-      </svg>
+      <img class="brand-logo" src="assets/mailnest-logo.png" alt="" width="72" height="72" loading="eager" decoding="async" />
     `;
   }
 
